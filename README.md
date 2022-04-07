@@ -64,3 +64,8 @@ Cada salida se conecto a un LED  con una resistencia de 220$\Omega$, la salida d
 Esto se implementó en físico teniendo en cuenta el siguiente diagrama: 
 
 ![Diagrama TinkerCAD](arduinoTinker.jpeg)
+
+## Referencias
+
+- OpenPLC en Arduino: https://www.openplcproject.com/runtime/arduino/
+- 
