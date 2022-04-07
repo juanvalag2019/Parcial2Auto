@@ -16,11 +16,15 @@ Para el planteamiento del proceso en la planta se propuso que la salida para las
 
 El tiempo del proceso se acumula desde el inicio de las motobombas primero 100 segundos para llenar los dos contenedores de 1000 litros, luego 50 segundos para el llenado del contenedor de 2000 litros, seguidamente el rotor de la mezcladora que dura 100 segundos y por último se desocupa el contenedor de 2000 litros en un lapso de 100 segundos, por lo que el tiempo final del proceso alcanza los 350 segundos.
 
+![Variables OpenPLC](diagramaSeq.png)
+
 ## Implementación en OpenPLC
 
 Para la implementación en OpenPLC se plantearon las siguientes variables 
 
 ![Variables OpenPLC](VarsOpenPLC.jpeg)
+
+Primero se realizó una configuración Latch para mantener la entrada de Start después de que se presiona el botón start. Luego se añadio un contacto normalmente cerrado para el stop, luego un internal relay (IR1) para el reinicio del proceso cuando se  abre la última valvula, se hace un reset a todas las variables (motores, valvula, mezcladora, IR_STOP) y se establece un internal relay para comenzar a correr los motores (IR2). Luego de que se activa IR2 se da un delay de 500 milisegundos para el arranque de los motores, estos por medio de un on-delay timer (TON) se mantienen encendidos durante 10 segundos simulando la entrada de liquido a los dos contenedores de 1000 Litros, se apagan los motores y se activan las valvulas por medio de otro TON a los 100 milisegundos. Estas valvulas se mantienen abiertas por 5 segundos que simulan el llenado del tanque de 2000 litros, luego se enciende la helice mezcladora y se mantiene durante 10 segundos encendida por medio de otro TON, seguidamente se apaga la helice y se abre la valvula del contenedor de 2000 litros. Finalmente, esta valvula se mantiene encendida por 10 segundos, luego se espera 100 milisegundos para reiniciar el sistema por medio del IR1, cada vez que se abre la última valvula la señal va a un contador que tiene programado 10 ciclos, cuando se llega al decimo se cierran las valvulas, se reinicia el estado de start y stop y se reinicia el contador de ciclos, para quedar listo para otro uso.
 
 Se implementó el diseño en el editor de OpenPLC:
 
@@ -28,7 +32,9 @@ Se implementó el diseño en el editor de OpenPLC:
 
 ## Implementación en Arduino
 
-Para la implementación en Arduino se hizo uso de las 4 salidas digitales que puede utilizar el firmware de OpenPLC 
+Para la implementación en Arduino se hizo uso de las 4 salidas digitales que puede utilizar el firmware de OpenPLC, se utilizó dos entradas digitales en los pines 2 y 3 para los botones de inicio y parada respectivamente, con una ubicación en OpenPLC de %IX100.0 y %IX100.1 respectivamente, luego los pines de salida fueron el pin 7 para las motobombas (se activan al mismo tiempo), el pin 8 para la helice de mezclado, el pin 12 para las valvulas de los dos contenedores de 1000 litros y el pin 13 para el contenedor de 2000 litros con una ubicación en OpenPLC de %QX100.0, %QX100.1, %QX100.2 y %QX100.3 respectivamente.
+
+Cada salida se conecto a un LED  con una resistencia de 220$\Omega$, la salida de la helice de mezclado se conectó a un módulo L298N puente H para controlar el motor de la helice.
 
 ![Diagrama Circuito](Prototipo%20Arduino%20Dise%C3%B1o%20Circuito%20Electrico_page-0001.jpg)
 
