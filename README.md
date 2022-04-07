@@ -2,10 +2,11 @@
 
 ## Contenido
   - [Diseño](#diseño)
-  - [Implementación en OpenPLC](#implementación-en-openplc)
-  - [Implementación en Arduino](#implementación-en-arduino)
   - [Implementación en Codesys](#implementación-en-codesys)
   - [Implementación de HMI](#implementación-de-hmi)
+  - [Implementación en OpenPLC](#implementación-en-openplc)
+  - [Implementación en Arduino](#implementación-en-arduino)
+  
 
 ## Diseño
 Para la automatización del proceso dentro de la planta se analizó el sistema teniendo en cuenta las condiciones iniciales y el proceso en diferentes estados, planteando el sistema en la imagen 1.
