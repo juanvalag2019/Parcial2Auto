@@ -4,6 +4,8 @@
   - [Diseño](#diseño)
   - [Implementación en OpenPLC](#implementación-en-openplc)
   - [Implementación en Arduino](#implementación-en-arduino)
+  - [Implementación en Codesys](#implementación-en-codesys)
+  - [Implementación de HMI](#implementación-de-hmi)
 
 ## Diseño
 Para la automatización del proceso dentro de la planta se analizó el sistema teniendo en cuenta las condiciones iniciales y el proceso en diferentes estados, planteando el sistema en la imagen 1.
@@ -17,6 +19,26 @@ Para el planteamiento del proceso en la planta se propuso que la salida para las
 El tiempo del proceso se acumula desde el inicio de las motobombas primero 100 segundos para llenar los dos contenedores de 1000 litros, luego 50 segundos para el llenado del contenedor de 2000 litros, seguidamente el rotor de la mezcladora que dura 100 segundos y por último se desocupa el contenedor de 2000 litros en un lapso de 100 segundos, por lo que el tiempo final del proceso alcanza los 350 segundos.
 
 ![Variables OpenPLC](diagramaSeq.png)
+## Implementación en Codesys
+Para la implementación en Codesys, primero se definieron las variables globales del sistema
+
+![Variables Codesys](VarsCodesys.png)
+
+Posterior a la definición de variables, se procedió al diseño dentro del editor de Codesys
+
+![Implementación en Codesys](ladder1.png)
+![Implementación en Codesys](ladder2.png)
+![Implementación en Codesys](ladder3.png)
+![Implementación en Codesys](ladder4.png)
+![Implementación en Codesys](ladder5.png)
+## Implementación de HMI
+Para la implementación del HMI, se usó la herramienta de visualización de Codesys, con la cual se logró el siguiente diseño:
+
+![Implementación HMI](HMI.png)
+
+El cual puesto en marcha se ve de la siguienta forma:
+
+![HMI en funcionamiento](implementacion_HMI.gif)
 
 ## Implementación en OpenPLC
 
