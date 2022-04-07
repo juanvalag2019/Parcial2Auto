@@ -18,7 +18,7 @@ Para la implementación en OpenPLC se plantearon las siguientes variables
 
 <object data="/Ladder_Prototipo_Arduino.pdf" type="application/pdf" width="700px" height="700px">
     <embed src="/Ladder_Prototipo_Arduino.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/Ladder_Prototipo_Arduino">Download PDF</a>.</p>
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/Ladder_Prototipo_Arduino.pdf">Download PDF</a>.</p>
     </embed>
 </object>
 
