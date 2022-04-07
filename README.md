@@ -31,6 +31,13 @@ Posterior a la definición de variables, se procedió al diseño dentro del edit
 ![Implementación en Codesys](ladder4.png)
 ![Implementación en Codesys](ladder5.png)
 ## Implementación de HMI
+Para la implementación del HMI, se usó la herramienta de visualización de Codesys, con la cual se logró el siguiente diseño:
+
+![Implementación HMI](HMI.png)
+
+El cual puesto en marcha se ve de la siguienta forma:
+
+![HMI en funcionamiento](implementacion_HMI.gif)
 
 ## Implementación en OpenPLC
 
