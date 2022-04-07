@@ -14,13 +14,21 @@ El tiempo del proceso se acumula desde el inicio de las motobombas primero 100 s
 
 Para la implementación en OpenPLC se plantearon las siguientes variables 
 
-![Variables OpenPLC](VarsCodesys.jpeg)
+![Variables OpenPLC](VarsOpenPLC.jpeg)
 
-<object data="/Ladder_Prototipo_Arduino.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="/Ladder_Prototipo_Arduino.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/Ladder_Prototipo_Arduino.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+Se implementó el diseño en el editor de OpenPLC:
+
+![Ladder OpenPLC](Ladder_Prototipo_Arduino_page-0001.jpg)
+
+## Implementación en Arduino
+
+Para la implementación en Arduino se hizo uso de las 4 salidas digitales que puede utilizar el firmware de OpenPLC 
+
+![Diagrama Circuito](Prototipo%20Arduino%20Dise%C3%B1o%20Circuito%20Electrico_page-0001.jpg)
+
+Esto se implementó en físico teniendo en cuenta el siguiente diagrama: 
+
+![Diagrama TinkerCAD](arduinoTinker.jpeg)
 
 ### Tabla de variables
 | Variable    | Atributo | Tipo | Descripción                              |
